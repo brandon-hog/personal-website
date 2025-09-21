@@ -61,14 +61,14 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="px-8 py-16 max-w-6xl mx-auto">
+      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16 max-w-6xl mx-auto`}>
         <h3 className="text-3xl font-bold text-center mb-12">Featured Projects</h3>
         <div className="grid md:grid-cols-2 gap-8">
           {[1, 2].map((id) => (
             <motion.div
               key={id}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="rounded-2xl shadow-xl overflow-hidden transition"
+              className={`${dark ? "bg-gray-900 text-white" : "bg-white text-gray-900"} "rounded-2xl shadow-xl overflow-hidden transition`}
             >
               <Image
                 src="/project-placeholder.png"
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="px-8 py-16 bg-gray-50 dark:bg-gray-800">
+      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16`}>
         <h3 className="text-3xl font-bold text-center mb-12">Skills</h3>
         <div className="flex flex-wrap justify-center gap-4">
           {[
@@ -109,7 +109,7 @@ export default function Home() {
             <motion.span
               key={skill.name}
               whileHover={{ scale: 1.1 }}
-              className="px-5 py-2 bg-gray-200 dark:bg-gray-700 rounded-full font-medium transition"
+              className="px-5 py-2 bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-white rounded-full font-medium transition"
             >
               {skill.name}
             </motion.span>
@@ -118,26 +118,26 @@ export default function Home() {
       </section>
 
       {/* Education Section */}
-      <section className="px-8 py-16 bg-white dark:bg-gray-900">
+      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16`}>
         <h3 className="text-3xl font-bold text-center mb-12">Education</h3>
         <div className="max-w-3xl mx-auto space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-6 border rounded-xl shadow-lg hover:shadow-2xl transition"
+            className={`${dark ? "bg-gray-700" : "bg-white"} p-6 border rounded-xl shadow-lg hover:shadow-2xl transition`}
           >
             <h4 className="text-xl font-semibold">University of Your School</h4>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className={dark ? "text-gray-300" : "text-gray-600"}>
               B.S. in Computer Science — Expected May 2026
             </p>
-            <p className="text-gray-600 dark:text-gray-300">GPA: 3.8/4.0</p>
+            <p className={dark ? "text-gray-300" : "text-gray-600"}>GPA: 3.8/4.0</p>
           </motion.div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="px-8 py-16 text-center">
+      <section className={`${dark ? "bg-gray-900" : "bg-white"} px-8 py-16 text-center`}>
         <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
         <p className="mb-6">I'm open to opportunities and collaborations.</p>
         <motion.a
@@ -149,7 +149,7 @@ export default function Home() {
         </motion.a>
       </section>
 
-      <footer className="py-6 text-center border-t">
+      <footer className={`${dark ? "bg-gray-800" : "bg-gray-50"} py-6 text-center border-t`}>
         <p>© {new Date().getFullYear()} Brandon Hoggatt. All rights reserved.</p>
       </footer>
     </div>
