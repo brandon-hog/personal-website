@@ -8,7 +8,7 @@ export default function Home() {
   const [dark, setDark] = useState(false);
 
   return (
-    <div className={dark ? "bg-gray-900 text-white" : "bg-white text-gray-900"}>
+    <div className="dark:bg-gray-900 dark:text-white bg-white text-gray-900">
       {/* Navbar */}
       <nav className="flex justify-between items-center px-8 py-4 border-b border-gray-200 dark:border-gray-700">
         <h1 className="text-2xl font-bold">Brandon Hoggatt</h1>
@@ -38,12 +38,7 @@ export default function Home() {
         >
           I build web apps and solve problems with C++, Java, TypeScript, and Python.
         </motion.p>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="flex gap-4"
-        >
+        <motion.div className="flex gap-4">
           <a
             href="/resume.pdf"
             className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition"
@@ -61,14 +56,13 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16 max-w-6xl mx-auto`}>
+      <section className="dark:bg-gray-900 dark:text-white bg-white text-gray-900  px-8 py-16 max-w-6xl mx-auto">
         <h3 className="text-3xl font-bold text-center mb-12">Featured Projects</h3>
         <div className="grid md:grid-cols-2 gap-8">
           {[1, 2].map((id) => (
-            <motion.div
+            <div
               key={id}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className={`${dark ? "bg-gray-900 text-white" : "bg-white text-gray-900"} "rounded-2xl shadow-xl overflow-hidden transition`}
+              className="dark:bg-gray-900 dark:text-white bg-white text-gray-900  rounded-2xl shadow-xl overflow-hidden transition"
             >
               <Image
                 src="/project-placeholder.png"
@@ -79,7 +73,7 @@ export default function Home() {
               />
               <div className="p-6">
                 <h4 className="text-xl font-semibold mb-2">Project {id}</h4>
-                <p className="mb-4 text-gray-600 dark:text-gray-300">
+                <p className={dark ? "text-gray-300" : "text-gray-600"}>
                   Short description of what this project does and why it's cool.
                 </p>
                 <a
@@ -89,55 +83,41 @@ export default function Home() {
                   View Project →
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Skills Section */}
-      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16`}>
+      <section className="dark:bg-gray-900 dark:text-white bg-gray-50 text-gray-900  px-8 py-16">
         <h3 className="text-3xl font-bold text-center mb-12">Skills</h3>
         <div className="flex flex-wrap justify-center gap-4">
-          {[
-            { name: "C++" },
-            { name: "Java" },
-            { name: "JavaScript" },
-            { name: "Python" },
-            { name: "Next.js" },
-            { name: "Tailwind" }
-          ].map((skill) => (
+          {["C++", "Java", "JavaScript", "Python", "Next.js", "Tailwind"].map((skill) => (
             <motion.span
-              key={skill.name}
+              key={skill}
               whileHover={{ scale: 1.1 }}
-              className="px-5 py-2 bg-blue-100 dark:bg-blue-700 text-blue-800 dark:text-white rounded-full font-medium transition"
+              className="dark:bg-blue-700 dark:text-white bg-blue-100 text-blue-800  px-5 py-2 rounded-full font-medium transition"
             >
-              {skill.name}
+              {skill}
             </motion.span>
           ))}
         </div>
       </section>
 
       {/* Education Section */}
-      <section className={`${dark ? "text-white bg-gray-900" : "bg-white text-gray-900"} px-8 py-16`}>
+      <section className="dark:bg-gray-900 dark:text-white bg-gray-100 text-gray-900  px-8 py-16">
         <h3 className="text-3xl font-bold text-center mb-12">Education</h3>
         <div className="max-w-3xl mx-auto space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className={`${dark ? "bg-gray-700" : "bg-white"} p-6 border rounded-xl shadow-lg hover:shadow-2xl transition`}
-          >
+          <div className="dark:bg-gray-700 dark:text-gray-300 bg-white text-gray-600  p-6 border rounded-xl shadow-lg hover:shadow-2xl transition">
             <h4 className="text-xl font-semibold">University of Your School</h4>
-            <p className={dark ? "text-gray-300" : "text-gray-600"}>
-              B.S. in Computer Science — Expected May 2026
-            </p>
-            <p className={dark ? "text-gray-300" : "text-gray-600"}>GPA: 3.8/4.0</p>
-          </motion.div>
+            <p>B.S. in Computer Science — Expected May 2026</p>
+            <p>GPA: 3.8/4.0</p>
+          </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className={`${dark ? "bg-gray-900" : "bg-white"} px-8 py-16 text-center`}>
+      <section className="dark:bg-gray-900 dark:text-white bg-white text-gray-900  px-8 py-16 text-center">
         <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
         <p className="mb-6">I'm open to opportunities and collaborations.</p>
         <motion.a
@@ -149,7 +129,7 @@ export default function Home() {
         </motion.a>
       </section>
 
-      <footer className={`${dark ? "bg-gray-800" : "bg-gray-50"} py-6 text-center border-t`}>
+      <footer className="dark:bg-gray-800 dark:text-white bg-gray-50 text-gray-900  py-6 text-center border-t">
         <p>© {new Date().getFullYear()} Brandon Hoggatt. All rights reserved.</p>
       </footer>
     </div>
